@@ -40,6 +40,37 @@ PLUGINS = [
         ],
     },
     {
+        "folder": "zuk-fire-lines",
+        "zip_name": "zuk-fire-lines",
+        "blocker": (
+            "The fire-line ids are not known yet. Turn on the Arena inspector, fight Zuk, read the ids of "
+            "the moving entries, and enter them in the settings (then send them over to build in). If the "
+            "inspector shows no moving fire at all, the lines are projectiles or effects and need Jagex's docs."
+        ),
+        "tests": [
+            "Settings: turn on Arena inspector. Fight Zuk; open the panel: moving entries are listed first.",
+            "Enter the fire lines' ids in Fire-line ids: tiles appear under each line and follow it.",
+            "Tiles disappear as soon as each line passes.",
+            "Switch 3 tiles / 5 tiles and change the colour: both apply instantly.",
+            "Turn the Arena inspector off again before uploading.",
+        ],
+    },
+    {
+        "folder": "auto-screenshot",
+        "zip_name": "auto-screenshot",
+        "blocker": (
+            "Plugins cannot take screenshots or save files yet. Until Jagex adds that and "
+            "`src/game/capture.lua` is wired to it, the plugin only lists the moments it would capture. "
+            "Test the triggers on Monday, but hold the upload until the API exists."
+        ),
+        "tests": [
+            "Open the panel (ribbon icon): it says screenshots aren't available yet.",
+            "Gain a level with 'All levels' selected: it appears under Recent moments.",
+            "With the default 99s & 120s option, a normal level does not appear.",
+            "Get (or watch) a broadcast: only your own name triggers it, not other players'.",
+        ],
+    },
+    {
         "folder": "where-am-i-facing",
         "zip_name": "where-am-i-facing",
         "tests": [
