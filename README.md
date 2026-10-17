@@ -8,6 +8,7 @@ The hub for my RuneScape 3 plugins for the official Plugin Hub (hosted on [mod.i
 |---|---|---|---|
 | Bank Organizer | 1.0.0 | Colour-codes your bank by category and guides you through sorting it, one move at a time. | [6inq/bank-organizer](https://github.com/6inq/bank-organizer) |
 | Flippr | 1.0.0 | Grand Exchange flipping alerts from live RuneScape Wiki prices: dumps, ranked flips, hyper flips, profit tracking. | [6inq/flippr](https://github.com/6inq/flippr) |
+| WhereAmIFacing | 1.0.0 | A compass arrow showing which way your character faces (N, NE, E, SE, S, SW, W, NW), in any colour. | [6inq/where-am-i-facing](https://github.com/6inq/where-am-i-facing) |
 
 ## Shared docs
 - [RS3_API_NOTES.md](docs/RS3_API_NOTES.md): the RS3 plugin Lua API as reverse-engineered from the plugins already live on mod.io. Jagex had not published official docs when this was written.
@@ -25,6 +26,10 @@ git clone https://github.com/6inq/bank-organizer.git rs3-plugins/bank-organizer
 
 ```bash
 git clone https://github.com/6inq/flippr.git rs3-plugins/flippr
+```
+
+```bash
+git clone https://github.com/6inq/where-am-i-facing.git rs3-plugins/where-am-i-facing
 ```
 
 Created by **6ing**.
