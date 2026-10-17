@@ -8,6 +8,8 @@ The hub for my RuneScape 3 plugins for the official Plugin Hub (hosted on [mod.i
 |---|---|---|---|
 | Bank Organizer | 1.1.0 | Colour-codes your bank by category and guides you through sorting it, one move at a time. | [6inq/bank-organizer](https://github.com/6inq/bank-organizer) |
 | WhereAmIFacing | 1.1.0 | An arrow at your character's feet showing which way you face (N, NE, E, SE, S, SW, W, NW), in any colour. | [6inq/whereamifacing](https://github.com/6inq/whereamifacing) |
+| ZukFireLines | 1.0.0 | Highlights TzKal-Zuk's fire lines on the floor as they sweep across the arena, 3 or 5 tiles wide, in any colour. | [6inq/zukfirelines](https://github.com/6inq/zukfirelines) |
+| Auto Screenshot | 1.0.0 | Screenshots level-ups (all, 99s, 120s, both, or broadcasts only), achievements, rare drops and your broadcasts. | [6inq/autoscreenshot](https://github.com/6inq/autoscreenshot) |
 
 ## Shared docs
 - [RS3_API_NOTES.md](docs/RS3_API_NOTES.md): the RS3 plugin Lua API as reverse-engineered from the plugins already live on mod.io. Jagex had not published official docs when this was written.
@@ -25,6 +27,14 @@ git clone https://github.com/6inq/bank-organizer.git rs3-plugins/bank-organizer
 
 ```bash
 git clone https://github.com/6inq/whereamifacing.git rs3-plugins/where-am-i-facing
+```
+
+```bash
+git clone https://github.com/6inq/zukfirelines.git rs3-plugins/zuk-fire-lines
+```
+
+```bash
+git clone https://github.com/6inq/autoscreenshot.git rs3-plugins/auto-screenshot
 ```
 
 Created by **6ing**.
