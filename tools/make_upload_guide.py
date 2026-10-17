@@ -68,6 +68,7 @@ PLUGINS = [
             "Gain a level with 'All levels' selected: it appears under Recent moments.",
             "With the default 99s & 120s option, a normal level does not appear.",
             "Get (or watch) a broadcast: only your own name triggers it, not other players'.",
+            "Complete an achievement: it appears under Recent moments (if not, note the exact chat wording so it can be added).",
         ],
     },
     {
