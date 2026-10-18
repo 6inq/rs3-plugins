@@ -37,6 +37,8 @@ PLUGINS = [
             "Check the top Regular flips against the GE: real spreads, or one-off troll trades?",
             "Hold an item, then Sold: realized profit goes up. Restart the client: holdings remain.",
             "Turn Dump Mode off, restart: it stays off.",
+            "Press Dashboard: session, week, month and all-time totals show, and the sold trade is listed with its date.",
+            "Restart the client: past trades and all-time/week/month totals remain; the session total starts again at 0.",
         ],
     },
     {
