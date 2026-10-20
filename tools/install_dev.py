@@ -5,7 +5,7 @@ import sys
 
 HUB = pathlib.Path(__file__).resolve().parent.parent
 DEV = pathlib.Path(r"C:\ProgramData\Jagex\RuneScape-BETA\dev_plugins")
-DEV_FOLDERS = {6398181: "prettyui"}
+DEV_FOLDERS = {6398181: "prettyui", 6414886: "gepl"}
 PLUGIN_FILES = ["plugin.json", "main.lua"]
 PLUGIN_DIRS = ["src", "resources"]
 
@@ -41,8 +41,9 @@ def install(folder):
 def main(names):
     if not DEV.exists():
         sys.exit(f"{DEV} not found: join the beta once first")
-    if not (DEV / "prettyui" / "main.lua").exists():
-        print("warning: dev_plugins\\prettyui is missing; plugins needing PrettyUI will not load")
+    for name in DEV_FOLDERS.values():
+        if not (DEV / name / "main.lua").exists():
+            print(f"warning: dev_plugins\\{name} is missing; plugins needing {name} will not load")
     for folder in plugins(names):
         install(folder)
 
