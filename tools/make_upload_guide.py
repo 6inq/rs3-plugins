@@ -1,9 +1,3 @@
-"""Builds UPLOAD_GUIDE.md: everything needed to upload every plugin to mod.io, in one file.
-
-Each plugin's own docs/MODIO_LISTING.md stays the source of truth; this stitches them
-together with build commands, zip paths and a per-plugin in-game test checklist.
-Re-run after editing any listing: python tools/make_upload_guide.py
-"""
 import json
 import pathlib
 
@@ -20,6 +14,10 @@ PLUGINS = [
             "Press Sorting Guide on a tab: MOVE marks an item and a white line runs to its target.",
             "On a 'Drag X onto Tab N' step the line ends on that tab's button (if not, note the console line).",
             "Pick the item up and drag: the line stays. Top-row labels are not hidden by the tab bar.",
+            "Arrow check: dark outline, arrowhead, a bar in the gap on insert steps, an outline on the tab or + button.",
+            "Sort inside tabs: Smart puts a gear tab in style order (melee, ranged, magic, necro) and slot order; try Name and Keep my order.",
+            "On a bank with no custom tabs (or a fresh test account), My tabs says so and the arrow points at the + button.",
+            "After testing, send PluginData.db (bank-organizer-ui and the export) so the tab bar and gear styles can be pinned down.",
             "Tab Layout (My tabs): Remove a kind, pin a kind to another tab, Move a tab right; the legend updates.",
             "Switch to Whole bank, Tab Layout: Copy my current tabs, rename a tab (Enter), move and delete a tab.",
             "Assign Categories, right-click an item, pick a kind: its tint changes.",
@@ -96,7 +94,6 @@ def manifest(folder):
 
 def listing_body(folder):
     text = (HUB / folder / "docs" / "MODIO_LISTING.md").read_text(encoding="utf-8")
-    # Drop the per-file title and intro; keep from the first section onward.
     body = "\n" + text[text.index("## Basics"):]
     return body.replace("\n## ", "\n### ").replace("### Basics", "### mod.io form: Basics", 1).lstrip("\n")
 

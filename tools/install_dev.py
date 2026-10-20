@@ -1,12 +1,3 @@
-"""Copies plugins into the beta's dev_plugins folder for in-game testing.
-
-Usage: python tools/install_dev.py [plugin-folder ...]   (no arguments = every plugin)
-
-In development, dependencies resolve by dev_plugins folder name (Jagex docs: Plugin
-Structure), while mod.io releases use the numeric mod.io id. This rewrites the dev copy's
-dependencies from the mod.io id to the folder name (6398181 -> "prettyui"); the repos and
-release zips keep the mod.io id.
-"""
 import json
 import pathlib
 import shutil
@@ -14,7 +5,7 @@ import sys
 
 HUB = pathlib.Path(__file__).resolve().parent.parent
 DEV = pathlib.Path(r"C:\ProgramData\Jagex\RuneScape-BETA\dev_plugins")
-DEV_FOLDERS = {6398181: "prettyui"}  # mod.io id -> dev_plugins folder name
+DEV_FOLDERS = {6398181: "prettyui"}
 PLUGIN_FILES = ["plugin.json", "main.lua"]
 PLUGIN_DIRS = ["src", "resources"]
 
