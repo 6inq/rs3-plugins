@@ -21,6 +21,7 @@ PLUGINS = [
             "Right-click an item, Ignore (Bank Organizer): it loses its tint, gets a grey outline and the guide skips it; Stop ignoring brings it back.",
             "Rearrange two tabs, open infinity: tab numbers and the arrow follow the order you see.",
             "Sort inside tabs: Value puts the most valuable item of each tab first.",
+            "Sort inside tabs: Quantity (highest first) puts the biggest stacks first; Quantity (lowest first) the smallest.",
             "Share or Load a Setup: copy your code, change a tab, paste the code back and press Enter: your setup returns.",
             "After testing, send PluginData.db (bank-organizer-ui and the export) so the tab bar and gear styles can be pinned down.",
             "Tab Layout (My tabs): Remove a kind, pin a kind to another tab, Move a tab right; the legend updates.",
