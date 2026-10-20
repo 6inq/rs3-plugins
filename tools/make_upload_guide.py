@@ -17,6 +17,8 @@ PLUGINS = [
             "Arrow check: dark outline, arrowhead, a bar in the gap on insert steps, an outline on the tab or + button.",
             "Sort inside tabs: Smart puts a gear tab in style order (melee, ranged, magic, necro) and slot order; try Name and Keep my order.",
             "On a bank with no custom tabs (or a fresh test account), My tabs says so and the arrow points at the + button.",
+            "Make a wrong move on purpose (swap instead of insert): 'Not quite' shows, the arrow walks you back, then the original move returns.",
+            "Right-click an item, Ignore (Bank Organizer): it loses its tint, gets a grey outline and the guide skips it; Stop ignoring brings it back.",
             "After testing, send PluginData.db (bank-organizer-ui and the export) so the tab bar and gear styles can be pinned down.",
             "Tab Layout (My tabs): Remove a kind, pin a kind to another tab, Move a tab right; the legend updates.",
             "Switch to Whole bank, Tab Layout: Copy my current tabs, rename a tab (Enter), move and delete a tab.",
