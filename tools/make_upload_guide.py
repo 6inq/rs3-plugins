@@ -27,7 +27,7 @@ PLUGINS = [
             "A partyhat or Santa hat sits at the top of infinity; Sell, Alch, Disassemble and Trash items gather at the bottom.",
             "Decant labels: part-dose potions you can combine say DECANT; turn a dose off in settings and its labels go.",
             "Sort direction: Vertical, then follow the guide: each tab fills down the columns.",
-            "Labels read ACTIVE, VAN, FAV, SELL, ALCH, DIS, TRASH, DECANT in one small font inside the slot.",
+            "Labels read Active, Van, Fav, Sell, Alch, Dis, Trash, Decant, centred inside the slot; change a colour under Tag label colours.",
             "Tags on a 3-dose potion: tick Never label for decanting; its DECANT label goes.",
             "My tabs, Tab Layout, Move right on a tab, Start Sorting: drag the named tab button where the arrow points; the guide moves on and pins follow.",
             "Start Sorting is green right under Analyze Bank and turns into a red Stop Sorting.",
