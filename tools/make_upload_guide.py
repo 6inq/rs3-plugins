@@ -188,7 +188,7 @@ def main():
         "Every repo commits locally first. Push each one (with its version tags) from the hub folder:",
         "",
         "```bash",
-        "cd C:/Claude/rs3-plugins && for d in . bank-organizer where-am-i-facing zuk-fire-lines auto-screenshot; do git -C $d push --follow-tags origin main; done",
+        f"cd {HUB.as_posix()} && for d in . bank-organizer where-am-i-facing zuk-fire-lines auto-screenshot; do git -C $d push --follow-tags origin main; done",
         "```",
         "",
         "Flippr has no GitHub remote on purpose; it stays local until it is tested.",
