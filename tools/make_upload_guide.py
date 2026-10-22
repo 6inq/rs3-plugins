@@ -1,9 +1,24 @@
+"""Writes UPLOAD_GUIDE.md: everything needed to upload the plugins to mod.io.
+
+For each plugin it gathers the upload zip path, what is new (from
+CHANGELOG.md), an in-game test checklist (below), and the mod.io form
+answers from its local docs/MODIO_LISTING.md. The guide and the listing
+docs stay on this PC; they are git-ignored and never pushed.
+
+Usage (from the hub folder):
+    python tools/make_upload_guide.py
+"""
+
 import json
 import pathlib
 
+# The hub folder (this file lives in <hub>/tools/).
 HUB = pathlib.Path(__file__).resolve().parent.parent
+# Where the guide is written (git-ignored).
 OUT = HUB / "UPLOAD_GUIDE.md"
 
+# The plugins in the guide, in order: folder, zip name, optional blocker
+# note, and the in-game test checklist.
 PLUGINS = [
     {
         "folder": "bank-organizer",
@@ -18,12 +33,14 @@ PLUGINS = [
             "Sort inside tabs: Smart puts a gear tab in style order (melee, ranged, magic, necro) and slot order; try Name and Keep my order.",
             "On a bank with no custom tabs (or a fresh test account), My tabs says so and the arrow points at the + button.",
             "Make a wrong move on purpose (swap instead of insert): 'Not quite' shows, the arrow walks you back, then the original move returns.",
-            "Right-click an item, Ignore (Bank Organizer): it loses its tint, gets a grey outline and the guide skips it; Stop ignoring brings it back.",
+            "Right-click an item, Tags (Bank Organizer), Ignore: it loses its tint, gets a grey outline and the guide skips it; click Ignore again to bring it back.",
             "Rearrange two tabs, open infinity: tab numbers and the arrow follow the order you see.",
             "Sort inside tabs: Value puts the most valuable item of each tab first.",
             "Sort inside tabs: Quantity (highest first) puts the biggest stacks first; Quantity (lowest first) the smallest.",
             "Share or Load a Setup: copy your code, change a tab, paste the code back and press Enter: your setup returns.",
-            "Right-click an item: one entry, Tags. Set a category, a placement (try Sell and Vanity) and Ignore; labels and the sidebar count update.",
+            "PrettyUI 1.2.0: right-click an item, Tags (Bank Organizer) opens a submenu titled with the item name: Category..., Ignore, every tag with [ ] or [x], More...",
+            "Submenu: click Sell, reopen it: Sell shows [x] and the Sell label appears; tick Trash too: Sell (higher priority) keeps the label.",
+            "Submenu on a 3-dose potion: Never label for decanting appears; on a whip it does not. Category... opens a small picker; More... opens the Tags window.",
             "A partyhat or Santa hat sits at the top of infinity; Sell, Alch, Disassemble and Trash items gather at the bottom.",
             "Decant labels: part-dose potions you can combine say DECANT; turn a dose off in settings and its labels go.",
             "Sort direction: Vertical, then follow the guide: each tab fills down the columns.",
@@ -35,7 +52,17 @@ PLUGINS = [
             "Tab Layout (My tabs): Remove a kind, pin a kind to another tab, Move a tab right; the legend updates.",
             "Switch to Whole bank, Tab Layout: Copy my current tabs, rename a tab (Enter), move and delete a tab.",
             "Right-click an item, Tags, pick a category: its tint changes.",
-            "poff bank-organizer then pon bank-organizer: no crash, settings and layout are kept.",
+            "Sidebar: header shows v1.4.2 | by 6ing; status card shows Moves left and Sorted tabs X / Y while sorting; [-] folds Organize, Your tabs and Tools.",
+            "Your tabs rows: each tab shows its first item icon, its name in its colour and a count. Check the icons fit (screenshot if they look odd).",
+            "Tools, Settings: five pages (General, Sorting, Tags & Labels, Colours, Cleaner) with [Page] marking the open one; the plugin's settings gear shows the same pages; footer shows the version.",
+            "Tools, Custom categories: make one, add a rule (Name contains: dragon), Analyze: matches appear in the review list; Remove one, Restore it; the category's colour tints its tab.",
+            "Tab Layout (Whole bank): the numbered rail picks a tab; add your custom category to a tab with the dropdown; the bottom bar adds, moves and deletes tabs.",
+            "Tools, Custom tags: make a 'Note' tag set to Label only, tick it on an item: its label shows and the item does not move; Up / Down changes the priority list.",
+            "Herblore (Smart): vials first, then each recipe: grimy, clean, unf, secondary, doses (1) to (4), flasks (1) to (6). Settings, Sorting, Secondaries At the bottom moves them all down.",
+            "Decant labels off: part doses stay with their potion; on: lone part doses wait at the bottom of the herb tab.",
+            "Bank Cleaner (Tools, or Run the Bank Cleaner when sorted): groups with reasons; clue items, partyhats, quest items for unfinished quests and coins are never listed. Tag as Trash a ticked item: it lines up at the bottom of infinity; Keep hides it.",
+            "Share code: make a custom category and tag, copy the code, Reset to default, paste it back: the category, tag and Secondaries setting return.",
+            "poff bank-organizer then pon bank-organizer: no crash; settings, layout, custom categories, tags and the Keep list are kept.",
         ],
     },
     {
@@ -103,16 +130,20 @@ PLUGINS = [
 
 
 def manifest(folder):
+    """Return a plugin's plugin.json as a dict."""
     return json.loads((HUB / folder / "plugin.json").read_text(encoding="utf-8"))
 
 
 def listing_body(folder):
+    """Return a plugin's mod.io form answers from its listing doc, with headings
+    moved one level down to fit inside the guide."""
     text = (HUB / folder / "docs" / "MODIO_LISTING.md").read_text(encoding="utf-8")
     body = "\n" + text[text.index("## Basics"):]
     return body.replace("\n## ", "\n### ").replace("### Basics", "### mod.io form: Basics", 1).lstrip("\n")
 
 
 def whats_new(folder, version):
+    """Return the changelog lines for a version, or [] when there are none."""
     path = HUB / folder / "CHANGELOG.md"
     if not path.exists():
         return []
@@ -126,6 +157,7 @@ def whats_new(folder, version):
 
 
 def section(plugin):
+    """Return the guide lines for one plugin."""
     info = manifest(plugin["folder"])
     zip_path = HUB / plugin["folder"] / "dist" / f"{plugin['zip_name']}-{info['version']}.zip"
     lines = [f"## {info['name']} {info['version']}", ""]
@@ -145,6 +177,7 @@ def section(plugin):
 
 
 def main():
+    """Write the whole guide."""
     names = ", ".join(manifest(p["folder"])["name"] for p in PLUGINS)
     lines = [
         "# Plugin upload guide",
