@@ -61,7 +61,7 @@ PLUGINS = [
             "Tools, Custom tags: make a 'Note' tag set to Label only, tick it on an item: its label shows and the item does not move; Up / Down changes the priority list.",
             "Herblore (Smart): vials first, then each recipe: grimy, clean, unf, secondary, doses (1) to (4), flasks (1) to (6). Settings, Sorting, Secondaries At the bottom moves them all down.",
             "Decant labels off: part doses stay with their potion; on: lone part doses wait at the bottom of the herb tab.",
-            "Bank Cleaner (Tools, or Run the Bank Cleaner when sorted): groups with reasons; clue items, partyhats, quest items for unfinished quests and coins are never listed. Tag as Trash a ticked item: it lines up at the bottom of infinity; Keep hides it.",
+            "Bank Cleaner (Tools, or Run the Bank Cleaner when sorted): groups with reasons; clue items, partyhats, quest items for unfinished quests and coins are never listed. Tick a quest leftover: it is tagged Trash at once and stays ticked; tick an alch item (Alch) and a review item (Rev label); untick one and its tag goes; Start Sorting moves them to the bottom of infinity; Keep hides one.",
             "Share code: make a custom category and tag, copy the code, Reset to default, paste it back: the category, tag and Secondaries setting return.",
             "poff bank-organizer then pon bank-organizer: no crash; settings, layout, custom categories, tags and the Keep list are kept.",
         ],
