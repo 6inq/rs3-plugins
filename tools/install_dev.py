@@ -1,7 +1,7 @@
 """Copies plugins into the RS3 beta client's dev_plugins folder for testing.
 
 Each plugin's plugin.json, main.lua, src/ and resources/ are copied to
-C:\ProgramData\Jagex\RuneScape-BETA\dev_plugins\<folder>. Dependencies are
+C:/ProgramData/Jagex/RuneScape-BETA/dev_plugins/<folder>. Dependencies are
 rewritten from their mod.io ids to the dev folder names, because the beta
 client loads dependencies by folder.
 
