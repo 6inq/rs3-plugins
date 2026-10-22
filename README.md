@@ -34,4 +34,7 @@ git clone https://github.com/6inq/zukfirelines.git rs3-plugins/zuk-fire-lines
 git clone https://github.com/6inq/autoscreenshot.git rs3-plugins/auto-screenshot
 ```
 
+## Support
+If you enjoy the plugins and want to support their development, you can find me on [Patreon](https://www.patreon.com/cw/6ingRS).
+
 Created by **6ing**.
